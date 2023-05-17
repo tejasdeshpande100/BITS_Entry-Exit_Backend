@@ -1,37 +1,13 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema(
+const approvalSchema = new mongoose.Schema(
   {
-    id: {
-        type: String,
-        trim: true,
-        required: true,
-      },
-    name: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    contact_no: {
+    visitor_name: {
         type: String,
         trim: true,
         required: true,
     },
-    vehicle_no: {
-        type: String,
-        trim: true,
-    },
-    destination: {
-        type: String,
-        trim: true,
-        required: true,
-    },
-    in_time: {
-        type: String,
-        trim: true,
-        required: true,
-    },
-    out_time: {
+    visitor_mobile: {
         type: String,
         trim: true,
         required: true,
@@ -41,17 +17,46 @@ const userSchema = new mongoose.Schema(
         trim: true,
         required: true,
     },
-    no_person: {
+    coming_from_city: {
         type: String,
         trim: true,
+        required: true,
     },
-    in_campus: {
-        type: Boolean,
+    visitor_relation: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    visitor_email: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    accompanied_persons: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    requesting_to: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    department: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    post: {
+        type: String,
         trim: true,
         required: true,
     }
+    
+
+
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('User', userSchema, 'allUsers');
+module.exports = mongoose.model('Approval', approvalSchema, 'approval');

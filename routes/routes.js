@@ -4,7 +4,7 @@ const multer  = require('multer')
 const { v4: uuidv4 } = require('uuid');
 
 
-const { addData, find, uploadImage, registration } = require('../controllers/controller');
+const { addData, find, uploadImage, registration, addApprovalData, findApprovalData } = require('../controllers/controller');
 
 var storage = multer.diskStorage(
     {
@@ -33,9 +33,11 @@ var uploadMultiple = multer( { storage: storageMultiple } );
 
 // add or update
 router.post('/add-data',  addData);
+router.post('/add-approval-data',addApprovalData)
 router.get('/',(req,res)=>{res.json("Hello")});
 // find
 router.post('/find',  find);
+router.get('/find-approval-data',  findApprovalData);
 
 router.post('/upload',upload.single('image'), uploadImage)
 
